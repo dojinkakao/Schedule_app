@@ -1,28 +1,26 @@
 <div class="main">
     <div class="schedule_table">
         <h2>Schedules</h2>
-        <a><%= link_to "CREATE NEW", "post/new", class: "btn createBtn" %></a>
+        <a><%= link_to "CREATE NEW", "posts/new", class: "btn createBtn" %></a>
     <table>
      <thead>
       <tr>
         <th>Title</th>
-        <th>About</th>
         <th>Date</th>
         <th>Allday</th>
-        <th>Edit</th>
+        <th>About</th>
         <th>Delete</th>
       </tr>
      </thead>
 
-     <tbody>
+    <tbody>
      <% @posts.each do |post| %>
       <tr>
         <td><%= post.content %></td>
-        <td><%= post.about %></td>
         <td><%= post.date %></td>
-        <td><%= post.allday %></td>
-        <td><%= link_to "EDIT", "edit/#{post.id}", class: "tdBtn" %></td>
-        <td><%= link_to "DELETE", "destroy/#{post.id}", class: "tdBtn" %></td>
+        <td><%= post.allday ? '◯' : '×' %></td>
+        <td><%= link_to "CLICK", post, class: "tdBtn" %></td>
+        <td><%= link_to "DELETE",post, method: :delete,class: "tdBtn", data: { confirm: "本当に削除しますか？" } %></td>
       </tr>
       <% end %>
      </tbody>

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => 'post#index'
-  get 'post/new'
-  get 'post/show/:id/' => 'post#show'
+  root 'post#index'
 
-  resources :posts, only: [:new, :create, :index]
+  resources :posts, controller: :post
 end
