@@ -18,12 +18,12 @@
 
  <tr>
     <th>Allday</th>
-    <td><%= @post.allday %></td>
+    <td><%= @post.allday ? '◯' : '×' %></td>
  </tr>
 
 </table>
-        <%= link_to "BACK", "/", class: "btn backBtn" %>
-        <%= link_to "DELETE", "post/#{@post.id}/edit", class: "btn deleteBtn" %>
-        <%= link_to "EDIT", "/post/edit/#{@post.id}/", class: "btn editBtn" %>
+      <%= link_to "BACK", "/", class: "btn backBtn" %>
+      <%= link_to "DELETE", post_path, method: :delete,class: "btn deleteBtn", data: { confirm: "本当に削除しますか？" } %>
+      <%= link_to "EDIT", edit_post_path(@post.id), class: "btn editBtn" %>
     </div>
 </div>
